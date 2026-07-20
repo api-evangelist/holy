@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://de.holy.com/.well-known/openid-configuration
+docs: https://shopify.dev/docs/api/customer
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode]
+  pkce: S256
+  notes: >-
+    Authentication is delegated to Shopify's Customer Account API authorization server
+    (issuer https://shopify.com/authentication/47328854173). Storefront browsing and the
+    Storefront MCP server are unauthenticated; authenticated customer operations use OAuth
+    2.0 authorization code + PKCE with OpenID Connect.
+schemes:
+- name: shopify-customer-account-oauth2
+  type: oauth2
+  issuer: https://shopify.com/authentication/47328854173
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://shopify.com/authentication/47328854173/oauth/authorize
+    tokenUrl: https://shopify.com/authentication/47328854173/oauth/token
+    endSessionUrl: https://shopify.com/authentication/47328854173/logout
+    codeChallengeMethods: [S256]
+    grantTypes: [authorization_code, refresh_token, 'urn:ietf:params:oauth:grant-type:jwt-bearer']
+    tokenEndpointAuthMethods: [client_secret_basic]
+  sources: [well-known/holy-openid-configuration.json]
+- name: shopify-customer-account-oidc
+  type: openIdConnect
+  openIdConnectUrl: https://de.holy.com/.well-known/openid-configuration
+  idTokenSigningAlg: [RS256]
+  claims: [iss, sub, aud, exp, iat, nonce, sid, email, email_verified]
+  sources: [well-known/holy-openid-configuration.json]
