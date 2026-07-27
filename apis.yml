@@ -1,7 +1,14 @@
 aid: holy
 name: HOLY
-description: 'HOLY is a company surfaced as a portfolio company of hv-capital and added to the API Evangelist
-  network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the enrichment pipeline.'
+description: 'HOLY is a German direct-to-consumer beverage brand offering sugar-free, powdered
+  and syrup-based drink mixes that customers prepare with water or milk. Its product families
+  span HOLY Energy (caffeine and vitamins), HOLY Iced Tea, HOLY Hydration (isotonic
+  electrolytes), HOLY Milkshake (low-calorie), and HOLY Syrup. Founded by three friends
+  (Matze, Fred, and Phil), the company grew from a shared apartment to 50+ employees, 2
+  million customers, and 500,000+ social followers, positioned on "great taste with a good
+  conscience." HOLY sells online via a Shopify storefront and exposes a modern agentic-commerce
+  surface: a hosted Storefront MCP server, a Universal Commerce Protocol (UCP) endpoint,
+  llms.txt / agents.md agent instructions, and Shopify Customer Account OAuth/OIDC.'
 url: https://raw.githubusercontent.com/api-evangelist/holy/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,15 +16,87 @@ x-backed-by:
 - hv-capital
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Consumer
-apis: []
+- Beverages
+- Direct-to-Consumer
+- Ecommerce
+- Agentic Commerce
+- Shopify
+- Germany
+image: https://de.holy.com/cdn/shop/files/holy-syrup-2.png?v=1775851476
+apis:
+- name: HOLY Storefront & Agentic Commerce
+  description: 'HOLY''s Shopify-powered storefront and its agentic-commerce surface: a hosted
+    Storefront MCP server (product search, cart, policies), a Universal Commerce Protocol
+    (UCP) endpoint, Shopify Customer Account OAuth/OIDC + GraphQL, and llms.txt / agents.md
+    agent instructions. Shopify store: holyenergy.myshopify.com.'
+  humanURL: https://de.holy.com/llms.txt
+  baseURL: https://de.holy.com
+  tags:
+  - Agentic Commerce
+  - MCP
+  - Ecommerce
+  - Shopify
+  properties: []
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: Website
+  url: https://de.holy.com
+- type: About
+  url: https://de.holy.com/pages/our-story
+- type: Support
+  url: https://de.holy.com/pages/help-center
+- type: HelpCenter
+  url: https://de.holy.com/pages/help-center
+- type: Contact
+  url: https://de.holy.com/pages/contact-form
+- type: TermsOfService
+  url: https://de.holy.com/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://de.holy.com/policies/privacy-policy
+- type: Login
+  url: https://de.holy.com/account
+- type: MCPServer
+  url: mcp/holy-mcp.yml
+- type: WellKnown
+  url: well-known/holy-well-known.yml
+- type: Authentication
+  url: authentication/holy-authentication.yml
+- type: OAuthScopes
+  url: scopes/holy-scopes.yml
+- type: OpenIDConnect
+  url: well-known/holy-openid-configuration.json
+- type: LLMsTxt
+  url: llms/holy-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Conventions
+  url: conventions/holy-conventions.yml
+- type: DomainSecurity
+  url: security/holy-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

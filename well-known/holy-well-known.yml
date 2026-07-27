@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://de.holy.com/.well-known/
+host: https://de.holy.com
+notes: >-
+  HOLY runs on Shopify (store holyenergy.myshopify.com, id 47328854173). The OAuth/OIDC
+  discovery documents describe Shopify's Customer Account API authorization server. UCP is
+  Shopify's Universal Commerce Protocol agentic-commerce discovery surface.
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: holy-openid-configuration.json
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: holy-oauth-authorization-server.json
+- path: /.well-known/customer-account-api
+  status: 200
+  file: holy-customer-account-api.json
+- path: /.well-known/ucp
+  status: 200
+  file: holy-ucp.json
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /.well-known/assetlinks.json
+  status: 200
+- path: /.well-known/apple-app-site-association
+  status: 200

@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: https://de.holy.com/agents.md
+notes: >-
+  Cross-cutting semantics for HOLY's agentic-commerce surface, captured from the provider's
+  published agents.md and llms.txt. HOLY is a Shopify storefront, so most conventions follow
+  Shopify Storefront/Customer-Account behaviour rather than a bespoke API contract.
+authentication:
+  style: oauth2-authorization-code-pkce
+  detail: Storefront browsing and the Storefront MCP are unauthenticated; customer operations use Shopify Customer Account OAuth/OIDC.
+  ref: authentication/holy-authentication.yml
+idempotency:
+  supported: false
+  detail: No idempotency-key contract is documented for the storefront/agentic surface.
+pagination:
+  style: cursor
+  detail: MCP search_catalog returns paginated results; callers pass pagination.cursor from the prior response to fetch the next page.
+rate_limiting:
+  documented: true
+  detail: Agents are instructed to respect rate limits and back off after HTTP 429 responses.
+  signal: HTTP 429
+data_freshness:
+  detail: Products, variants, prices, discounts, availability, gifts, bundle conditions and shipping thresholds are dynamic; agents must read live product/collection data and not cache tool definitions or catalogue facts.
+transaction_safety:
+  detail: Never complete payment without explicit, contemporaneous buyer approval; confirm exact products, variants, quantities, discounts, shipping and total before payment.
+protocols:
+  - name: Model Context Protocol (Storefront)
+    endpoint: https://de.holy.com/api/mcp
+  - name: Universal Commerce Protocol (UCP)
+    discovery: https://de.holy.com/.well-known/ucp
+    mcp_endpoint: https://de.holy.com/api/ucp/mcp
+product_data_access:
+  - 'GET https://de.holy.com/products/{handle}.json'
+  - 'GET https://de.holy.com/collections/{handle}/products.json'
+  - 'GET https://de.holy.com/search?q={query}&type=product'
+cross_links:
+  authentication: authentication/holy-authentication.yml
+  scopes: scopes/holy-scopes.yml
+  mcp: mcp/holy-mcp.yml

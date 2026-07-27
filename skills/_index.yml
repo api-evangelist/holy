@@ -1,0 +1,19 @@
+generated: '2026-07-19'
+method: searched
+source: https://de.holy.com/agents.md
+notes: >-
+  HOLY publishes first-party agent operating instructions at https://de.holy.com/agents.md
+  (saved verbatim as holy-agents.md) alongside https://de.holy.com/llms.txt. These are the
+  provider's own AGENTS.md-style skill: rules for product discovery, recommendations,
+  Mix & Match journeys, read-only browsing, the Universal Commerce Protocol / Storefront MCP
+  commerce workflow, and transaction-safety (explicit buyer approval before payment).
+skills:
+- file: holy-agents.md
+  name: HOLY agent operating instructions
+  description: >-
+    Provider-published operating rules for agents shopping the HOLY store: source priority,
+    Mix & Match rules, recommendation standards, MCP/UCP commerce workflow, and transaction
+    safety.
+  api: mcp/holy-mcp.yml
+  operations: [search_catalog, get_product_details, get_cart, update_cart, search_shop_policies_and_faqs]
+  published: true

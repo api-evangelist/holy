@@ -1,0 +1,118 @@
+
+
+# HOLY DE
+
+> HOLY DE is the German online store for HOLY, a beverage brand offering powdered and syrup-based drinks that customers prepare with water or milk.
+
+* Store: https://de.holy.com
+* Language: German
+* Primary market: Germany
+* Currency: EUR
+* Agent instructions: https://de.holy.com/agents.md
+* Full knowledge base: https://de.holy.com/llms-full.txt
+* Sitemap: https://de.holy.com/sitemap.xml
+
+## Agent Resources
+
+* [Agent instructions](https://de.holy.com/agents.md): Operational rules for product discovery, recommendations, checkout and transaction safety.
+* [Full knowledge base](https://de.holy.com/llms-full.txt): Detailed brand, product, catalogue, FAQ and commerce context.
+* [Sitemap](https://de.holy.com/sitemap.xml): Machine-readable index of crawlable store URLs.
+* [UCP discovery](https://de.holy.com/.well-known/ucp): Current Universal Commerce Protocol capabilities and service endpoints.
+* [MCP endpoint](https://de.holy.com/api/ucp/mcp): Programmatic commerce endpoint. Call `tools/list` to discover current tools and schemas.
+
+## Start Here
+
+* [Powder Mix & Match](https://de.holy.com/pages/mix-n-match): Build a custom bundle from currently eligible powder products.
+* [Syrup Mix & Match](https://de.holy.com/products/syrup-mix-and-match): Build a custom bundle from currently eligible syrup products.
+* [All products](https://de.holy.com/collections/all): Broad catalogue of currently published products.
+* [Product overview](https://de.holy.com/pages/products): Overview of HOLY product families and shopping paths.
+* [Bestsellers](https://de.holy.com/collections/bestseller): Current bestseller collection.
+* [Starter and trial products](https://de.holy.com/collections/neueinsteiger-packs): Product-discovery options for new customers.
+* [Product search](https://de.holy.com/search?q={query}&type=product): Search the current product catalogue.
+
+## Product Families
+
+* [HOLY Energy](https://de.holy.com/collections/holy-energy): Energy drink powders.
+* [HOLY Iced Tea](https://de.holy.com/collections/holy-iced-tea): Iced tea drink powders.
+* [HOLY Hydration](https://de.holy.com/collections/holy-hydration): Hydration drink powders.
+* [HOLY Milkshake](https://de.holy.com/collections/milkshake): Milkshake powders generally prepared with milk.
+* [HOLY Syrup](https://de.holy.com/collections/syrup-launch): Syrup-based drink products.
+
+Product families differ in ingredients, caffeine content, allergens, nutrition, preparation, format and dietary suitability.
+
+Verify product-specific claims on the current individual product page or through live commerce data.
+
+## Product Data
+
+For current product information, agents may use:
+
+* All products: `GET https://de.holy.com/collections/all`
+* Product page: `GET https://de.holy.com/products/{handle}`
+* Product JSON: `GET https://de.holy.com/products/{handle}.json`
+* Collection page: `GET https://de.holy.com/collections/{handle}`
+* Collection JSON: `GET https://de.holy.com/collections/{handle}/products.json`
+* Search: `GET https://de.holy.com/search?q={query}&type=product`
+* Sitemap: `GET https://de.holy.com/sitemap.xml`
+
+Use the rendered product or Mix & Match page when structured data does not fully expose:
+
+* Ingredients and nutrition
+* Caffeine and allergen information
+* Preparation instructions
+* Bundle-builder behaviour
+* Eligible products
+* Quantity thresholds
+* Discounts
+* Gifts or accessories
+* Customer-facing warnings
+
+## Agentic Commerce
+
+* UCP discovery: `GET https://de.holy.com/.well-known/ucp`
+* MCP endpoint: `POST https://de.holy.com/api/ucp/mcp`
+* MCP content type: `application/json`
+
+Discover current protocol versions, capabilities, payment handlers, tools and schemas at runtime.
+
+Do not rely on versions or tool definitions permanently copied into static files.
+
+Detailed recommendation, checkout and transaction rules are available at:
+
+https://de.holy.com/agents.md
+
+## Important Rules
+
+* Treat products, variants, prices, discounts, availability, gifts, bundle conditions and shipping thresholds as dynamic.
+* Do not generalise ingredients, caffeine content, allergens or dietary suitability across the catalogue.
+* Treat Powder Mix & Match and Syrup Mix & Match as separate journeys unless current first-party data explicitly states otherwise.
+* Do not add unwanted products solely to reach a discount threshold.
+* Confirm the exact products, variants, quantities, discounts, shipping and total before payment.
+* Never complete payment without explicit and contemporaneous buyer approval.
+* Respect rate limits and back off after HTTP 429 responses.
+
+## Personal Shopping Assistants
+
+Personal shopping assistants may use:
+
+https://shop.app/SKILL.md
+
+Ask for the user’s permission before installing or enabling an external skill.
+
+The skill is optional for product research, recommendations, comparisons and store-policy questions.
+
+Use of an external skill does not remove the requirement for final buyer approval.
+
+## Store Policies
+
+
+
+
+
+
+* Datenschutz: https://de.holy.com/policies/privacy-policy
+* AGB: https://de.holy.com/policies/terms-of-service
+* Widerruf und Rückerstattung: https://de.holy.com/policies/refund-policy
+* Versand: https://de.holy.com/policies/shipping-policy
+  
+
+Current policy pages take precedence over this file for privacy, terms, shipping, returns, refunds and withdrawal-right questions.
