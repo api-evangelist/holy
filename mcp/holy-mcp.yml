@@ -4,13 +4,11 @@ status: published
 source: https://de.holy.com/llms.txt
 server:
   name: holy-storefront
-  description: >-
-    HOLY's hosted Shopify Storefront MCP server for agentic commerce. Exposes catalog
-    search, cart management, product detail lookup, and store-policy/FAQ retrieval over the
-    Model Context Protocol. A second Universal Commerce Protocol (UCP) MCP endpoint at
-    /api/ucp/mcp handles agentic checkout (requires an agent profile URI). A Shopify
-    Customer Account MCP API (customer-account-mcp-api:full scope) is also advertised in the
-    /.well-known/customer-account-api document for authenticated customer operations.
+  description: HOLY's hosted Shopify Storefront MCP server for agentic commerce. Exposes catalog search,
+    cart management, product detail lookup, and store-policy/FAQ retrieval over the Model Context Protocol.
+    A second Universal Commerce Protocol (UCP) MCP endpoint at /api/ucp/mcp handles agentic checkout (requires
+    an agent profile URI). A Shopify Customer Account MCP API (customer-account-mcp-api:full scope) is
+    also advertised in the /.well-known/customer-account-api document for authenticated customer operations.
   transport: http
   protocol: model-context-protocol
   url: https://de.holy.com/api/mcp
@@ -19,7 +17,8 @@ server:
   content_type: application/json
 tools:
 - name: search_catalog
-  description: Search for products from the online store, hosted on Shopify (natural language and/or filters, paginated).
+  description: Search for products from the online store, hosted on Shopify (natural language and/or filters,
+    paginated).
 - name: get_cart
   description: Get the cart including items, shipping options, discount info, and checkout URL.
 - name: update_cart
@@ -28,3 +27,11 @@ tools:
   description: Get facts about the store's policies, products, or services.
 - name: get_product_details
   description: Look up a product by ID; pass the options parameter to select a specific variant.
+deployment:
+  mode: remote
+  endpoint: https://de.holy.com/api/mcp
+  verified: probed
+  probe: live
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
