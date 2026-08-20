@@ -35,6 +35,15 @@ tags:
 - Company
 - Consumer
 - Beverages
+- Direct to Consumer
+- E-Commerce
+- Agentic Commerce
+- Shopify
+- Germany
+tags_raw:
+- Company
+- Consumer
+- Beverages
 - Direct-to-Consumer
 - Ecommerce
 - Agentic Commerce
@@ -50,6 +59,11 @@ apis:
   humanURL: https://de.holy.com/llms.txt
   baseURL: https://de.holy.com
   tags:
+  - Agentic Commerce
+  - MCP
+  - E-Commerce
+  - Shopify
+  tags_raw:
   - Agentic Commerce
   - MCP
   - Ecommerce
