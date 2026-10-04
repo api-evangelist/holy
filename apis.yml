@@ -68,7 +68,6 @@ apis:
     (UCP) endpoint, Shopify Customer Account OAuth/OIDC + GraphQL, and llms.txt / agents.md
     agent instructions. Shopify store: holyenergy.myshopify.com.'
   humanURL: https://de.holy.com/llms.txt
-  baseURL: https://de.holy.com
   tags:
   - Agentic Commerce
   - MCP
@@ -80,6 +79,9 @@ apis:
   - Ecommerce
   - Shopify
   properties: []
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
